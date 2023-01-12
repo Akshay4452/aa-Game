@@ -219,9 +219,10 @@ GameObject:
   - component: {fileID: 718666569}
   - component: {fileID: 718666571}
   - component: {fileID: 718666572}
+  - component: {fileID: 718666573}
   m_Layer: 0
   m_Name: Pin
-  m_TagString: Untagged
+  m_TagString: Pin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,6 +332,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &718666573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718666568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d426ab33ee35d3b48977ee457205e425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootSpeed: 15
+  rb: {fileID: 0}
 --- !u!1 &1767106499
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +537,7 @@ Transform:
   m_GameObject: {fileID: 1977689428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.2109}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -540,7 +555,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0738e8f026a101847a0b0c2f8991ac9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 100
 --- !u!58 &1977689432
 CircleCollider2D:
   m_ObjectHideFlags: 0
