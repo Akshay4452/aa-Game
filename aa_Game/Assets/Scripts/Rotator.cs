@@ -6,6 +6,9 @@ public class Rotator : MonoBehaviour
 {
     public static float rotationSpeed = 100f; // used it as singleton
     ScoreHandler scoreHandler;
+    public float spawnDelay = 0.5f;
+    [SerializeField] private GameObject pinPrefab;
+    [SerializeField] public Vector2 pinSpawnPosition = new Vector2(0f, -4f);
     
     void Start() 
     {
@@ -21,5 +24,10 @@ public class Rotator : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) 
     {
         scoreHandler.scoreUpdate();
+        Invoke(nameof(SpawnPin), spawnDelay);
+    }
+    public void SpawnPin()
+    {
+        GameObject pinInstance = Instantiate(pinPrefab, pinSpawnPosition, Quaternion.identity);
     }
 }
