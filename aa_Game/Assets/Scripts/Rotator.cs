@@ -13,6 +13,8 @@ public class Rotator : MonoBehaviour
     void Start() 
     {
         scoreHandler = GetComponent<ScoreHandler>();
+        // Instantiate the pin when game starts
+        SpawnPin();
     }
 
     // Update is called once per frame
