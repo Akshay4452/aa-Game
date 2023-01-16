@@ -24,9 +24,9 @@ public class Rotator : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) 
-    {
+    {   
         scoreHandler.scoreUpdate();
-        Invoke(nameof(SpawnPin), spawnDelay);
+        Invoke(nameof(SpawnPin), spawnDelay);  
     }
     public void SpawnPin()
     {

@@ -9,7 +9,7 @@ public class Pin : MonoBehaviour
 {
     public float shootSpeed = 20f;
     public Rigidbody2D rb;
-    bool isHit = false;
+    bool isScored = false;
     private Camera mainCamera;
     private float touchableScreen = 0.8f;
         
@@ -25,7 +25,7 @@ public class Pin : MonoBehaviour
         if(Input.touchCount > 0) // checks if user has touched the screeen
         {
             Touch touch = Input.GetTouch(0);
-            if(!isHit)
+            if(!isScored)
             {
                 if(touch.position.y <= touchableScreen * Screen.height) 
                 {
@@ -33,8 +33,11 @@ public class Pin : MonoBehaviour
                     // this condition is used for separating pause button touch and dart fire touch
                     if(touch.phase == UnityEngine.TouchPhase.Began)
                     {
-                        // rb.MovePosition(rb.position + Vector2.up * shootSpeed * Time.deltaTime);
-                        rb.velocity = new Vector2(0f, shootSpeed);
+                        if(!LevelManger.isPauseScreenActive) // If pause screen is inactive then only shoot darts
+                        {
+                            // rb.MovePosition(rb.position + Vector2.up * shootSpeed * Time.deltaTime);
+                            rb.velocity = new Vector2(0f, shootSpeed);
+                        }   
                     }
                 }         
             }  
@@ -47,12 +50,18 @@ public class Pin : MonoBehaviour
             transform.parent = other.gameObject.transform;
             rb.velocity = Vector2.zero;
             Rotator.rotationSpeed = -Rotator.rotationSpeed;
-            isHit = true;
+            isScored = true;
         }
         else if(other.tag == "Pin")
         {
             mainCamera.backgroundColor = Color.red;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            mainCamera.orthographicSize = 2.5f;
+            Invoke(nameof(ReloadLevel), 0.5f);
         }
+    }
+
+    void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
