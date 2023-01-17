@@ -8,7 +8,6 @@ public class LevelManger : MonoBehaviour
     [SerializeField] public GameObject scoreCanvas;
     // List<int> MaxScores = new List<int>();
     // int maxLevels = 5;
-    public static bool isPauseScreenActive = false;
     
     public void RestartGame()
     {
@@ -28,16 +27,9 @@ public class LevelManger : MonoBehaviour
         SceneManager.LoadScene(1);
         Time.timeScale = 1;
     }
-    public void PauseGame()
-    {
-        Time.timeScale = 0.1f; // play game is slow motion in background
-        scoreCanvas.SetActive(false);
-        isPauseScreenActive = true;
-    }
     public void ResumeGame()
     {
         Time.timeScale = 1;
         scoreCanvas.SetActive(true);
-        isPauseScreenActive = false;
     }
 }

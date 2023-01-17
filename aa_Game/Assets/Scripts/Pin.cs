@@ -8,10 +8,11 @@ using UnityEngine.SceneManagement;
 public class Pin : MonoBehaviour
 {
     public float shootSpeed = 20f;
+    public float cameraZoom = 3.5f;
+    public float slowMotionSpeed = 0.3f;
     public Rigidbody2D rb;
     bool isScored = false;
     private Camera mainCamera;
-    private float touchableScreen = 0.8f;
         
     void Start()
     {
@@ -27,19 +28,13 @@ public class Pin : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if(!isScored)
             {
-                if(touch.position.y <= touchableScreen * Screen.height) 
+                if(touch.phase == UnityEngine.TouchPhase.Began)
                 {
-                    // if touch is in lower half of screen then only fire darts to rotator
-                    // this condition is used for separating pause button touch and dart fire touch
-                    if(touch.phase == UnityEngine.TouchPhase.Began)
                     {
-                        if(!LevelManger.isPauseScreenActive) // If pause screen is inactive then only shoot darts
-                        {
-                            // rb.MovePosition(rb.position + Vector2.up * shootSpeed * Time.deltaTime);
-                            rb.velocity = new Vector2(0f, shootSpeed);
-                        }   
-                    }
-                }         
+                        // rb.MovePosition(rb.position + Vector2.up * shootSpeed * Time.deltaTime);
+                        rb.velocity = new Vector2(0f, shootSpeed);
+                    }   
+                }          
             }  
         }     
     }
@@ -55,13 +50,19 @@ public class Pin : MonoBehaviour
         else if(other.tag == "Pin")
         {
             mainCamera.backgroundColor = Color.red;
-            mainCamera.orthographicSize = 2.5f;
-            Invoke(nameof(ReloadLevel), 0.5f);
+            mainCamera.orthographicSize = cameraZoom;
+            FindObjectOfType<AudioManager>().Play("GameOver");
+            Time.timeScale = slowMotionSpeed;
+            Invoke(nameof(GameOver), 0.5f);
         }
     }
 
-    void ReloadLevel()
+    void GameOver()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(0);
+    }
+    public static void PlaySound(AudioClip clip)
+    {
+
     }
 }
