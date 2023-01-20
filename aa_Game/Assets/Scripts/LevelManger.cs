@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManger : MonoBehaviour
 {
-    [SerializeField] public GameObject scoreCanvas;
     // List<int> MaxScores = new List<int>();
     // int maxLevels = 5;
     
@@ -24,12 +23,7 @@ public class LevelManger : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
         Time.timeScale = 1;
-    }
-    public void ResumeGame()
-    {
-        Time.timeScale = 1;
-        scoreCanvas.SetActive(true);
-    }
+    } 
 }

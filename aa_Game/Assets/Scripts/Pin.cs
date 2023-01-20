@@ -11,12 +11,14 @@ public class Pin : MonoBehaviour
     public float cameraZoom = 3.5f;
     public float slowMotionSpeed = 0.3f;
     public Rigidbody2D rb;
+    
     bool isScored = false;
     private Camera mainCamera;
         
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
         mainCamera = Camera.main;
     }
 
@@ -44,10 +46,20 @@ public class Pin : MonoBehaviour
         {
             transform.parent = other.gameObject.transform;
             rb.velocity = Vector2.zero;
-            Rotator.rotationSpeed = -Rotator.rotationSpeed;
+            Rotator.instance.rotationSpeed = -Rotator.instance.rotationSpeed;
+            Rotator.instance.scoreHandler.scoreUpdate();
+            FindObjectOfType<AudioManager>().Play("PlayerScored");
             isScored = true;
         }
-        else if(other.tag == "Pin")
+        // else if(other.tag == "Pin")
+        // {
+        //     mainCamera.backgroundColor = Color.red;
+        //     mainCamera.orthographicSize = cameraZoom;
+        //     FindObjectOfType<AudioManager>().Play("GameOver");
+        //     Time.timeScale = slowMotionSpeed;
+        //     Invoke(nameof(GameOver), 0.5f);
+        // }
+        else
         {
             mainCamera.backgroundColor = Color.red;
             mainCamera.orthographicSize = cameraZoom;
@@ -59,10 +71,6 @@ public class Pin : MonoBehaviour
 
     void GameOver()
     {
-        SceneManager.LoadScene(0);
-    }
-    public static void PlaySound(AudioClip clip)
-    {
-
+        SceneManager.LoadScene(1);
     }
 }

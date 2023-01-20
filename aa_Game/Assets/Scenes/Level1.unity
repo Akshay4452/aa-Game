@@ -620,9 +620,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0738e8f026a101847a0b0c2f8991ac9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 100
   spawnDelay: 0.5
   pinPrefab: {fileID: 5100559057091378520, guid: 64349317ce2978945ac614afae633adc, type: 3}
   pinSpawnPosition: {x: 0, y: -4}
+  scoreHandler: {fileID: 0}
 --- !u!58 &1977689432
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -652,6 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 986259365}
+  score: 0
 --- !u!1 &2021648005
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b82ec8bde547a23448dc15b32b3ea0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreCanvas: {fileID: 276428849}
 --- !u!4 &2021648007
 Transform:
   m_ObjectHideFlags: 0
@@ -783,6 +785,14 @@ PrefabInstance:
     - target: {fileID: 5911858821683693194, guid: fffa6984cc1ae4942b54bb9f1732b3d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911858821683693195, guid: fffa6984cc1ae4942b54bb9f1732b3d4, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911858821683693195, guid: fffa6984cc1ae4942b54bb9f1732b3d4, type: 3}
+      propertyPath: sounds.Array.data[2].volume
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fffa6984cc1ae4942b54bb9f1732b3d4, type: 3}

@@ -53,7 +53,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GameOver
     clip: {fileID: 8300000, guid: b135de2233c35ef418f36c0493e505a4, type: 3}
-    volume: 0.3
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerScored
+    clip: {fileID: 8300000, guid: 74abeb510d02b304e80d7aae84ca94af, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}
