@@ -10,6 +10,9 @@ public class Rotator : MonoBehaviour
     public float spawnDelay = 0.5f;
     [SerializeField] private GameObject pinPrefab;
     [SerializeField] public Vector2 pinSpawnPosition = new Vector2(0f, -4f);
+    [SerializeField] private Vector2 spinSpeed = new Vector2(100f, 500f);
+    
+    int[] spinDirection = new int[] {-1, 1};
 
     [HideInInspector]
     public ScoreHandler scoreHandler;
@@ -29,7 +32,10 @@ public class Rotator : MonoBehaviour
         SpawnPin();
     }
     void OnTriggerEnter2D(Collider2D other) 
-    {  
+    {
+        // setting random speed after dart hits the rotator 
+        rotationSpeed = Random.Range(spinSpeed.x, spinSpeed.y);
+        rotationSpeed = -1 * rotationSpeed;
         Invoke(nameof(SpawnPin), spawnDelay);  
     }
 

@@ -659,6 +659,7 @@ MonoBehaviour:
   spawnDelay: 0.5
   pinPrefab: {fileID: 5100559057091378520, guid: 64349317ce2978945ac614afae633adc, type: 3}
   pinSpawnPosition: {x: 0, y: -4}
+  spinSpeed: {x: 100, y: 300}
   scoreHandler: {fileID: 0}
   isGameOver: 0
 --- !u!58 &1977689432

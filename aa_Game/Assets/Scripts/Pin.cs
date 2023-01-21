@@ -46,18 +46,14 @@ public class Pin : MonoBehaviour
         {
             transform.parent = other.gameObject.transform;
             rb.velocity = Vector2.zero;
-            Rotator.instance.rotationSpeed = -Rotator.instance.rotationSpeed;
             Rotator.instance.scoreHandler.scoreUpdate();
             FindObjectOfType<AudioManager>().Play("PlayerScored");
             isScored = true;
         }
         else if(other.tag == "Pin")
         {
-            // mainCamera.backgroundColor = Color.red;
-            // mainCamera.orthographicSize = cameraZoom;
             FindObjectOfType<AudioManager>().Play("GameOver");
             FindObjectOfType<GameManager>().EndGame();
-            // Time.timeScale = slowMotionSpeed;
             Invoke(nameof(GameOver), 0.5f);
         }
     }
