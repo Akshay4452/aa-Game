@@ -13,6 +13,7 @@ public class Rotator : MonoBehaviour
 
     [HideInInspector]
     public ScoreHandler scoreHandler;
+    public bool isGameOver = false;
     void Awake() 
     {
         if(instance == null)

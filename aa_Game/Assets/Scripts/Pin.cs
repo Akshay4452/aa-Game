@@ -51,20 +51,13 @@ public class Pin : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("PlayerScored");
             isScored = true;
         }
-        // else if(other.tag == "Pin")
-        // {
-        //     mainCamera.backgroundColor = Color.red;
-        //     mainCamera.orthographicSize = cameraZoom;
-        //     FindObjectOfType<AudioManager>().Play("GameOver");
-        //     Time.timeScale = slowMotionSpeed;
-        //     Invoke(nameof(GameOver), 0.5f);
-        // }
-        else
+        else if(other.tag == "Pin")
         {
-            mainCamera.backgroundColor = Color.red;
-            mainCamera.orthographicSize = cameraZoom;
+            // mainCamera.backgroundColor = Color.red;
+            // mainCamera.orthographicSize = cameraZoom;
             FindObjectOfType<AudioManager>().Play("GameOver");
-            Time.timeScale = slowMotionSpeed;
+            FindObjectOfType<GameManager>().EndGame();
+            // Time.timeScale = slowMotionSpeed;
             Invoke(nameof(GameOver), 0.5f);
         }
     }
