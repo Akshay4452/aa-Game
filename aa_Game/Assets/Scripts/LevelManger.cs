@@ -56,10 +56,9 @@ public class LevelManger : MonoBehaviour
             else
             {
                 SceneManager.LoadScene("MainMenu");
-            }
-            
+            } 
         }
-    } 
+    }
     void Update()
     {
         if(!(SceneManager.GetActiveScene().name == "GameOver"))
