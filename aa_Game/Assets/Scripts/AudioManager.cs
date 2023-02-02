@@ -35,6 +35,10 @@ public class AudioManager : MonoBehaviour
     {
         // Finds sound by name and plays it
         Sounds s = Array.Find(sounds, sound => sound.name == name);
+        // => operator is used when we have single line of code in a method
+        // sound is the iterator; it has "name" as member variable (see Sounds class) and it is comparing it
+        // with the input "name" in Play() method. If those "name" strings match then only it plays the sound
+        // else it gives us the warning 
         if(s == null)
         {
             Debug.LogWarning("Sound " + name + " not found");
@@ -52,5 +56,16 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Stop();
+    }
+    public void Pause(string name)
+    {
+        // Finds sound by name and plays it
+        Sounds s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null)
+        {
+            Debug.LogWarning("Sound " + name + " not found");
+            return;
+        }
+        s.source.Pause();
     }
 }

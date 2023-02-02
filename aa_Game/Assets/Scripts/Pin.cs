@@ -52,14 +52,15 @@ public class Pin : MonoBehaviour
         }
         else if(other.tag == "Pin")
         {
+            Rotator.instance.isGameOver = true;
             FindObjectOfType<AudioManager>().Play("GameOver");
             FindObjectOfType<GameManager>().EndGame();
-            Invoke(nameof(GameOver), 0.5f);
+            Invoke(nameof(GameOver), 0.5f); 
         }
     }
 
     void GameOver()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("GameOver");
     }
 }

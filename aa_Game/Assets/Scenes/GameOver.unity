@@ -1164,6 +1164,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b82ec8bde547a23448dc15b32b3ea0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxPinsInLevel: 05000000080000000a000000
+  rotatorSize:
+  - 0
+  - 0
+  - 0
+  currentLevel: 0
+  nextLevelIndex: 0
 --- !u!114 &2080306830
 MonoBehaviour:
   m_ObjectHideFlags: 0
